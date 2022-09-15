@@ -4,8 +4,6 @@ import { addProduct } from "../actions/cart";
 
 export function Movie({ movieId, movieTitle, overview, img }) {
 
-	const dispatcher = useDispatch();
-
 	return (
 		<>
 			<div class="conteiner">
@@ -19,10 +17,6 @@ export function Movie({ movieId, movieTitle, overview, img }) {
 						</div>
 					</div>
 				</div>
-
-				<button onClick={() => dispatcher(addProduct({ movieTitle, overview }))}>
-					Add to cart
-				</button>
 			</div>
 		</>
 	)

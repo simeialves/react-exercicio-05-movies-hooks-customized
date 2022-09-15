@@ -1,15 +1,8 @@
-import { useEffect, useState } from "react";
 import { MoviesList } from "../components/MoviesList";
-import { MoviesService } from "../services/MoviesService";
+import { useGetMovies } from "../hooks/useGetMovies";
 
 export function Home() {
-	const [movies, setMovies] = useState([]);
-
-	useEffect(() => {
-		MoviesService.get().then(({ data: { results } }) => {
-			setMovies(results);
-		});
-	}, []);
+	const movies = useGetMovies();
 
 	return (
 		<div className="App">

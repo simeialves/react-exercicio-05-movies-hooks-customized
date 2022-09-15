@@ -1,17 +1,10 @@
-import { useEffect, useState } from "react";
-import { MoviesService } from "../services/MoviesService";
 import { useParams } from "react-router-dom";
+import { useGetMoviesById } from "../hooks/useGetMoviesById";
 
 export default function MovieDetail() {
-	const [movie, setMovie] = useState({});
 	const { movieId } = useParams();
 
-	useEffect(() => {
-		MoviesService.getById(movieId).then(({ data }) => {
-			console.log(data);
-			setMovie(data);
-		});
-	}, []);
+	const movie = useGetMoviesById(movieId);
 
 	return (
 		<>
